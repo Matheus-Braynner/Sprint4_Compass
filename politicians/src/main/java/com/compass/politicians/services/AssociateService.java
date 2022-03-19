@@ -33,8 +33,8 @@ public class AssociateService {
 	}
 	
 	public List<Associate> findByPoliticalOffice(String politicalOffice) {
-		//return repository.findByPoliticalOffice(politicalOffice);
-		return null;
+		PoliticalOffice politicalOfficeEnum = PoliticalOffice.toEnum(politicalOffice.toUpperCase());
+		return repository.findByPoliticalOffice(politicalOfficeEnum);
 	}
 	
 	public Associate findById(Long id) {
