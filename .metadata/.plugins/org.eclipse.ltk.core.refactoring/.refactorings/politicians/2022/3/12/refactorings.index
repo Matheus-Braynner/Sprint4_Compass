@@ -1,0 +1,9 @@
+1647649785071	Rename type 'Associate'
+1647649865260	Rename type 'Gender'
+1647650404040	Rename type 'AssociadoRepositorio'
+1647650443812	Rename type 'CargoPolitico'
+1647650463839	Rename type 'Genero'
+1647650491820	Rename type 'Associado'
+1647651243404	Rename package 'com.compass.politicians.repository'
+1647651279850	Rename package 'com.compass.politicians.controller'
+1647698645532	Delete element

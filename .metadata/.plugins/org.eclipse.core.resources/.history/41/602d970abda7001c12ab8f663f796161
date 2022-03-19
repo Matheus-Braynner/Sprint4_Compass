@@ -1,0 +1,26 @@
+package com.compass.politicians.enums;
+
+public enum PoliticalOffice {
+	COUNCILLOR,
+	MAYOR,
+	STATE_REPRESENTATIVE,
+	FEDERAL_REPRESENTATIVE,
+	SENATOR,
+	DISTRICT_GOVERNOR,
+	PRESIDENT,
+	NONE;
+	
+	public static PoliticalOffice toEnum(String cod) {
+        if (cod == null) {
+            return null;
+        }
+
+        for (PoliticalOffice x : PoliticalOffice.values()) {
+            if (cod.equals(x.getCod())) {
+                return x;
+            }
+        }
+
+        throw new IllegalArgumentException("Id inválido: " + cod + ".");
+    }
+}	

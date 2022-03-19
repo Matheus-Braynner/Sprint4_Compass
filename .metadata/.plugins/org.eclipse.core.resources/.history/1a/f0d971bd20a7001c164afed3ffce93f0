@@ -1,0 +1,5 @@
+package com.compass.politicians.dto;
+
+public class AssociateDTO {
+
+}

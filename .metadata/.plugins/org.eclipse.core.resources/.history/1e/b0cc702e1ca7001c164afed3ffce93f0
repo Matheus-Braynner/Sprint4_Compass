@@ -1,0 +1,21 @@
+package com.compass.politicians.entities;
+
+import java.util.Date;
+
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.compass.politicians.enums.CargoPolitico;
+import com.compass.politicians.enums.Genero;
+
+
+public class Associado {
+	
+	private String nome;
+	private CargoPolitico politicalOffice;
+ 
+	private Date dataNascimento;
+    private Genero sexo;
+
+}

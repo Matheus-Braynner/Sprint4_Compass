@@ -1,0 +1,6 @@
+package com.compass.politicians.enums;
+
+public enum Genero {
+	MASCULINO,
+	FEMININO;
+}

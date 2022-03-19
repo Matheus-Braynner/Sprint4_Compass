@@ -1,0 +1,13 @@
+package com.compass.politicians.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.compass.politicians.repositories.AssociateRepository;
+
+@Service
+public class AssociateService {
+
+	@Autowired
+	private AssociateRepository repository;
+}

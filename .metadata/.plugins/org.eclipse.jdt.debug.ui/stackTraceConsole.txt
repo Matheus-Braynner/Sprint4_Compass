@@ -1,0 +1,3 @@
+public static Page<StatesDto> convert(Page<States> states) {
+		return states.map(StatesDto::new);
+	}

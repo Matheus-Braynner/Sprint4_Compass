@@ -1,0 +1,10 @@
+package com.compass.politicians.entities;
+
+import com.compass.politicians.enums.PoliticalOffice;
+
+public class Associate {
+	
+	private String name;
+	private PoliticalOffice politicalOffice;
+
+}

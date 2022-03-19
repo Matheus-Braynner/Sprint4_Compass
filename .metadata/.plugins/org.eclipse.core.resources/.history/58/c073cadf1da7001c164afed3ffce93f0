@@ -1,0 +1,12 @@
+package com.compass.politicians.enums;
+
+public enum PoliticalOffice {
+	COUNCILLOR,
+	MAYOR,
+	DEPUTADO_ESTADUAL,
+	DEPUTADO_FEDERAL,
+	SENADOR,
+	GOVERNADOR,
+	PRESIDENTE,
+	NENHUM;
+}	

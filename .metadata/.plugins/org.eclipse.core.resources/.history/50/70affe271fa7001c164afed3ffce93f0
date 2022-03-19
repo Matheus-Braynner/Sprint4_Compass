@@ -1,0 +1,5 @@
+package com.compass.politicians.controller;
+
+public class AssociateController {
+
+}

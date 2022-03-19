@@ -1,0 +1,10 @@
+package com.compass.politicians.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.compass.politicians.entities.Associate;
+import com.compass.politicians.enums.PoliticalOffice;
+
+public interface AssociateRepository extends JpaRepository<Associate, Long>{
+
+}

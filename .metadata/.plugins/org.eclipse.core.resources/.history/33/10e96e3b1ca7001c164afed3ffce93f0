@@ -1,0 +1,18 @@
+package com.compass.politicians.entities;
+
+import java.util.Date;
+
+import com.compass.politicians.enums.CargoPolitico;
+import com.compass.politicians.enums.Genero;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+public class Associado {
+	
+	private String nome;
+	private CargoPolitico politicalOffice;
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dataNascimento;
+    private Genero sexo;
+
+}

@@ -1,0 +1,5 @@
+package com.compass.politicians.services.exceptions;
+
+public class ResourceNotFoundException {
+
+}
