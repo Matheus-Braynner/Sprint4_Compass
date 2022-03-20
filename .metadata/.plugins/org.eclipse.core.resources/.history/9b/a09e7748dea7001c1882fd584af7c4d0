@@ -1,0 +1,8 @@
+package com.compass.politicians.enums;
+
+public enum Ideology {
+	
+	LEFTIST,
+	CENTER,
+	RIGHTIST;
+}

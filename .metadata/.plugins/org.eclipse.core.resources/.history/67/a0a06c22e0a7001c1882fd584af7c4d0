@@ -1,0 +1,9 @@
+package com.compass.politicians.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RestController
+@RequestMapping(value = "/politicalparty")
+public class PoliticalPartyController {
+
+}

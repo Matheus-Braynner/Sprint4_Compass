@@ -1,8 +1,10 @@
 package com.compass.politicians.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum PoliticalOffice {
 	COUNCILLOR("COUNCILLOR"),
 	MAYOR("MAYOR"),
@@ -15,10 +17,6 @@ public enum PoliticalOffice {
 
 	private String political;
 	
-	PoliticalOffice(String political) {
-		this.political = political;
-	}
-
 	public static PoliticalOffice toEnum(String cod) {
         if (cod == null) {
             return null;

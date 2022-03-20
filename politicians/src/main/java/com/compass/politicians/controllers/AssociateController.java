@@ -16,13 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.compass.politicians.dto.AssociateDTO;
 import com.compass.politicians.entities.Associate;
-import com.compass.politicians.enums.PoliticalOffice;
 import com.compass.politicians.repositories.AssociateRepository;
 import com.compass.politicians.services.AssociateService;
 

@@ -1,0 +1,9 @@
+package com.compass.politicians.repositories;
+
+import com.compass.politicians.entities.PoliticalParty;
+
+public interface PoliticalPartyRepository {
+
+	PoliticalParty save(PoliticalParty obj);
+
+}

@@ -1,0 +1,5 @@
+package com.compass.politicians.controllers;
+
+public class PoliticalPartyController {
+
+}

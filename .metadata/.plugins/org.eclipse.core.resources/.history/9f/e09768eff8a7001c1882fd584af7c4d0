@@ -1,0 +1,23 @@
+package com.compass.politicians.dto;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.compass.politicians.enums.PoliticalOffice;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+public class AssociateWithPoliticalPartyDTO {
+
+	private Long id;
+	private String name;
+	@Enumerated(EnumType.STRING)
+	private PoliticalOffice politicalOffice;
+	private String politicalParty;
+	
+	
+	
+}

@@ -1,0 +1,23 @@
+package com.compass.politicians.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.compass.politicians.enums.Ideology;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public class PoliticalParty {
+
+	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String name;
+	private String abbreviation;
+	private Ideology ideology;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private Date FoundationDate;
+	
+	
+}

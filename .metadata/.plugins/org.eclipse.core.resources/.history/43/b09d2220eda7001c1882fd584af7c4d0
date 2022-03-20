@@ -1,0 +1,25 @@
+package com.compass.politicians.enums;
+
+public enum Ideology {
+	
+	LEFTIST("LEFTIST"),
+	CENTRIST("CENTRIST"),
+	RIGHTIST("RIGHTIST");
+	
+	private String political;
+
+	
+	public static Ideology toEnum(String cod) {
+        if (cod == null) {
+            return null;
+        }
+
+        for (Ideology x : Ideology.values()) {
+            if (cod.equals(x.getPolitical())) {
+                return x;
+            }
+        }
+
+        throw new IllegalArgumentException("Political Office invalid: " + cod + ".");
+    }
+}

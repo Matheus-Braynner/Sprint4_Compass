@@ -1,0 +1,34 @@
+package com.compass.politicians.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.compass.politicians.entities.PoliticalParty;
+import com.compass.politicians.repositories.PoliticalPartyRepository;
+import com.compass.politicians.services.exceptions.ResourceNotFoundException;
+
+@Service
+public class PoliticalPartyService {
+
+	@Autowired
+	private PoliticalPartyRepository politicalPartyRepository;
+	
+	
+	public PoliticalParty insert(PoliticalParty obj) {
+		return politicalPartyRepository.save(obj);
+	}
+	
+	public List<PoliticalParty> findAll(Pageable pageable) {
+		return politicalPartyRepository.findAll();
+	}
+	
+
+	public PoliticalParty findById(Long id) {
+		Optional<PoliticalParty> obj = politicalPartyRepository.findById(id);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+	}
+}

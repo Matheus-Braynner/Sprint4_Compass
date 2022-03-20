@@ -1,0 +1,13 @@
+package com.compass.politicians.dto;
+
+import com.compass.politicians.entities.PoliticalParty;
+import com.compass.politicians.enums.PoliticalOffice;
+
+public class AssociateWithPoliticalPartyDTO {
+
+	private Long id;
+	private String name;
+	private PoliticalOffice politicalOffice;
+	private String politicalParty;
+	
+}

@@ -2,6 +2,8 @@ package com.compass.politicians.dto;
 
 import java.util.Date;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import org.springframework.data.domain.Page;
 
@@ -18,8 +20,10 @@ public class AssociateDTO {
 
 	private Long id;
 	private String name;
+	@Enumerated(EnumType.STRING)
 	private PoliticalOffice politicalOffice;
 	private Date birthDate;
+	@Enumerated(EnumType.STRING)
     private Gender gender;
 	
     public AssociateDTO(Associate associate) {

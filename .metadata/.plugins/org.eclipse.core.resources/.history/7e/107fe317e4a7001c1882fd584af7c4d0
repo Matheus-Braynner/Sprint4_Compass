@@ -1,0 +1,17 @@
+package com.compass.politicians.dto;
+
+import java.util.Date;
+import java.util.List;
+
+import com.compass.politicians.entities.Associate;
+import com.compass.politicians.enums.Ideology;
+
+public class PoliticalPartyDTO {
+
+	private Long id;
+	private String name;
+	private String abbreviation;
+	private Ideology ideology;
+	private Date foundationDate;
+	private List<Associate> listAssociate;
+}

@@ -1,0 +1,17 @@
+package com.compass.politicians.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.compass.politicians.repositories.PoliticalPartyRepository;
+
+@RestController
+@RequestMapping(value = "/politicalparty")
+public class PoliticalPartyController {
+
+	@Autowired
+	private PoliticalPartyRepository politicalPartyRepository;
+	
+	
+}

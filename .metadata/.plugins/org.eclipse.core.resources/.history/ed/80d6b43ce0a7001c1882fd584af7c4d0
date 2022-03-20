@@ -1,0 +1,8 @@
+package com.compass.politicians.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class PoliticalPartyService {
+
+}
