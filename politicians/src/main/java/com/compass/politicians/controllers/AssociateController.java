@@ -1,6 +1,7 @@
 package com.compass.politicians.controllers;
 
 import java.net.URI;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -30,17 +31,17 @@ public class AssociateController {
 
 	@Autowired
 	private AssociateRepository repository;
-
+	
 	@Autowired
 	private AssociateService service;
 
 	@PostMapping
 	@Transactional
-	public ResponseEntity<Associate> insert(@RequestBody Associate obj) {
-		obj = service.insert(obj);
+	public ResponseEntity<Associate> insert(@RequestBody AssociateDTO obj) {
+		Associate associate = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
+		return ResponseEntity.created(uri).body(associate);
 	}
 	
 	@GetMapping

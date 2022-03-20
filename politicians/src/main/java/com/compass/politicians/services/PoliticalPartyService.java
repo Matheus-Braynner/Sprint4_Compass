@@ -69,7 +69,7 @@ public class PoliticalPartyService {
 		entity.setAbbreviation(obj.getAbbreviation());
 		entity.setIdeology(obj.getIdeology());
 		entity.setFoundationDate(obj.getFoundationDate());
-		entity.setListAssociate(obj.getListAssociate());
+		entity.setAssociates(obj.getAssociates());
 	}
 	
 }

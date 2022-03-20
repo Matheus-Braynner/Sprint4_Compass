@@ -28,7 +28,7 @@ public class PoliticalPartyDTO {
 	private Ideology ideology;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date foundationDate;
-	private List<Associate> listAssociate;
+	private List<Associate> associates;
 	
 	
 	public PoliticalPartyDTO(PoliticalParty politicalParty) {
@@ -37,7 +37,7 @@ public class PoliticalPartyDTO {
 		this.abbreviation = politicalParty.getAbbreviation();
 		this.ideology = politicalParty.getIdeology();
 		this.foundationDate = politicalParty.getFoundationDate();
-		this.listAssociate = politicalParty.getListAssociate();
+		this.associates = politicalParty.getAssociates();
     }
     
     public static Page<PoliticalPartyDTO> convert(Page<PoliticalParty> politicalParty) {

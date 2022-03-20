@@ -36,7 +36,7 @@ public class PoliticalParty {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date foundationDate;
 	@OneToMany
-	private List<Associate> listAssociate;
+	private List<Associate> associates;
 	
 	@Override
 	public int hashCode() {
@@ -54,6 +54,8 @@ public class PoliticalParty {
 		return Objects.equals(id, other.id);
 	}
 	
-	
+	public void addAssociate(Associate obj) {
+		associates.add(obj);
+	}
 	
 }

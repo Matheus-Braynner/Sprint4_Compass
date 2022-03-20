@@ -10,8 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.compass.politicians.enums.PoliticalOffice;
+import com.compass.politicians.dto.AssociateDTO;
 import com.compass.politicians.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -37,6 +39,8 @@ public class Associate implements Serializable {
 	private Date birthDate;
 	@Enumerated(EnumType.STRING)
     private Gender gender;
+	@ManyToOne
+	private PoliticalParty politicalParty;
 	
 	@Override
 	public int hashCode() {
@@ -52,6 +56,14 @@ public class Associate implements Serializable {
 			return false;
 		Associate other = (Associate) obj;
 		return Objects.equals(id, other.id);
+	}
+	
+	public Associate(AssociateDTO obj) {
+		this.setId(null);
+		this.setName(obj.getName());
+		this.setPoliticalOffice(obj.getPoliticalOffice());
+		this.setBirthDate(obj.getBirthDate());
+		this.setGender(obj.getGender());
 	}
 	
 	
