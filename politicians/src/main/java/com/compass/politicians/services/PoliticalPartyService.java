@@ -33,9 +33,9 @@ public class PoliticalPartyService {
 		return politicalPartyRepository.findAll();
 	}
 	
-	public List<PoliticalParty> findByPoliticalOffice(String ideology) {
+	public List<PoliticalParty> findByIdeology(String ideology) {
 		Ideology ideologyEnum = Ideology.toEnum(ideology.toUpperCase());
-		return politicalPartyRepository.findByPoliticalOffice(ideologyEnum);
+		return politicalPartyRepository.findByIdeology(ideologyEnum);
 	}
 	
 	public PoliticalParty findById(Long id) {

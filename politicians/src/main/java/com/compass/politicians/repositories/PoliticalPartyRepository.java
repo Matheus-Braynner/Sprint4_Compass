@@ -9,7 +9,7 @@ import com.compass.politicians.enums.Ideology;
 
 public interface PoliticalPartyRepository extends JpaRepository<PoliticalParty, Long> {
 
-	List<PoliticalParty> findByPoliticalOffice(Ideology ideologyEnum);
+	List<PoliticalParty> findByIdeology(Ideology ideologyEnum);
 
 
 }

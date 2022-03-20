@@ -53,7 +53,7 @@ public class PoliticalPartyController {
 	
 	@GetMapping(value = "/politicalparty/{ideology}")
 	public ResponseEntity<List<PoliticalParty>> findByIdeology(@PathVariable String ideology) {
-		return ResponseEntity.ok(politicalPartyService.findByPoliticalOffice(ideology));
+		return ResponseEntity.ok(politicalPartyService.findByIdeology(ideology));
 	}
 	
 	@GetMapping(value = "/{id}")
