@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 import com.compass.politicians.enums.Ideology;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class PoliticalParty {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date foundationDate;
 	@OneToMany
+	@JsonIgnore
 	private List<Associate> associates;
 	
 	@Override

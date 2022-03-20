@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.compass.politicians.entities.Associate;
+import com.compass.politicians.entities.PoliticalParty;
 import com.compass.politicians.enums.PoliticalOffice;
 
 @Transactional
@@ -20,5 +21,6 @@ public interface AssociateRepository extends JpaRepository<Associate, Long>{
 
 	List<Associate> findByPoliticalOffice(PoliticalOffice politicalOffice);
 
+	List<Associate> findAllByPoliticalParty(PoliticalParty politicalParty);
 
 }

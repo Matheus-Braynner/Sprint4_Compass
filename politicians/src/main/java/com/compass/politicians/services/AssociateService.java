@@ -33,10 +33,14 @@ public class AssociateService {
 	
 	public Associate insert(AssociateDTO obj) {
 		Optional<PoliticalParty> politicalParty = politicalRepository.findById(obj.getIdPoliticalParty());
-		politicalParty.orElseThrow(() -> new ResourceNotFoundException(obj.getIdPoliticalParty()));
+		politicalParty.orElseThrow(() -> new ResourceNotFoundException(obj.getIdPoliticalParty()));	
 		Associate associate = new Associate(obj);
-		associate.setPoliticalParty(politicalParty.get());
-		return repository.save(associate);
+		PoliticalParty politicalPartyGet = politicalParty.get();
+		associate.setPoliticalParty(politicalPartyGet);
+		Associate associateSaved = repository.save(associate);
+		politicalPartyGet.addAssociate(associateSaved);
+		politicalPartyGet = politicalRepository.save(politicalPartyGet);
+		return associateSaved;
 	}
 	
 	public List<Associate> findAll(Pageable pageable) {
@@ -80,6 +84,18 @@ public class AssociateService {
 		entity.setPoliticalOffice(obj.getPoliticalOffice());
 		entity.setBirthDate(obj.getBirthDate());
 		entity.setGender(obj.getGender());
+	}
+
+	public void removeFromPoliticalParty(Long idAssociate, Long idPoliticalParty) {
+		Optional<Associate> associate = repository.findById(idAssociate);
+		associate.orElseThrow(() -> new ResourceNotFoundException("Id Associate not found: " + idAssociate));
+		
+		Optional<PoliticalParty> politicalParty = politicalRepository.findById(idPoliticalParty);
+		politicalParty.orElseThrow(() -> new ResourceNotFoundException("Id Political Party not found: " + idPoliticalParty));	
+		
+		Associate associateGet = associate.get();
+		associateGet.setPoliticalParty(null);
+		repository.save(associateGet);
 	}
 	
 }

@@ -31,7 +31,7 @@ public class AssociateController {
 
 	@Autowired
 	private AssociateRepository repository;
-	
+
 	@Autowired
 	private AssociateService service;
 
@@ -39,29 +39,28 @@ public class AssociateController {
 	@Transactional
 	public ResponseEntity<Associate> insert(@RequestBody AssociateDTO obj) {
 		Associate associate = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(obj.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).body(associate);
 	}
-	
+
 	@GetMapping
 	public Page<AssociateDTO> findAll(Pageable pagination) {
-		
+
 		Page<Associate> list = repository.findAll(pagination);
 		return AssociateDTO.convert(list);
 	}
-	
+
 	@GetMapping(value = "/politicaloffice/{politicalOffice}")
 	public ResponseEntity<List<Associate>> findByPoliticalOffice(@PathVariable String politicalOffice) {
 		return ResponseEntity.ok(service.findByPoliticalOffice(politicalOffice));
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Associate> findById(@PathVariable Long id) {
 		Associate obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	@Transactional
 	public ResponseEntity<Associate> update(@PathVariable Long id, @RequestBody Associate obj) {
@@ -73,6 +72,14 @@ public class AssociateController {
 	@Transactional
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+
+	@DeleteMapping(value = "{idAssociate}/politicalparty/{idPoliticalParty}")
+	@Transactional
+	public ResponseEntity<Void> removeFromPoliticalParty(@PathVariable Long idAssociate,
+																									@PathVariable Long idPoliticalParty) {
+		service.removeFromPoliticalParty(idAssociate, idPoliticalParty);
 		return ResponseEntity.noContent().build();
 	}
 }

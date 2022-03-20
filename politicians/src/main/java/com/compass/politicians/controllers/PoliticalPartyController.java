@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.compass.politicians.dto.PoliticalPartyDTO;
+import com.compass.politicians.entities.Associate;
 import com.compass.politicians.entities.PoliticalParty;
 import com.compass.politicians.repositories.PoliticalPartyRepository;
 import com.compass.politicians.services.PoliticalPartyService;
@@ -74,6 +75,12 @@ public class PoliticalPartyController {
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		politicalPartyService.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping(value = "/{id}/associates")
+	public ResponseEntity<List<Associate>> findAssociatesByPoliticalParty(@PathVariable Long id) {
+		List<Associate> list = politicalPartyService.findAssociatesByPoliticalParty(id);
+		return ResponseEntity.ok().body(list);
 	}
 	
 }

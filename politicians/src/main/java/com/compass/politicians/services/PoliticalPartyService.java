@@ -1,7 +1,6 @@
 package com.compass.politicians.services;
 
 import java.util.List;
-
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
@@ -12,8 +11,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.compass.politicians.entities.Associate;
 import com.compass.politicians.entities.PoliticalParty;
 import com.compass.politicians.enums.Ideology;
+import com.compass.politicians.repositories.AssociateRepository;
 import com.compass.politicians.repositories.PoliticalPartyRepository;
 import com.compass.politicians.services.exceptions.DatabaseException;
 import com.compass.politicians.services.exceptions.ResourceNotFoundException;
@@ -24,6 +25,8 @@ public class PoliticalPartyService {
 	@Autowired
 	private PoliticalPartyRepository politicalPartyRepository;
 	
+	@Autowired
+	private AssociateRepository associateRepository;
 	
 	public PoliticalParty insert(PoliticalParty obj) {
 		return politicalPartyRepository.save(obj);
@@ -70,6 +73,12 @@ public class PoliticalPartyService {
 		entity.setIdeology(obj.getIdeology());
 		entity.setFoundationDate(obj.getFoundationDate());
 		entity.setAssociates(obj.getAssociates());
+	}
+
+	public List<Associate> findAssociatesByPoliticalParty(Long id) {
+		PoliticalParty politicalParty = this.findById(id);
+		List<Associate> list = associateRepository.findAllByPoliticalParty(politicalParty);
+		return list;
 	}
 	
 }
