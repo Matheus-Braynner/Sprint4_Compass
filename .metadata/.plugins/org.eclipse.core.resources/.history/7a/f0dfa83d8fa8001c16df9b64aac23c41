@@ -1,0 +1,82 @@
+package com.compass.politicians.services;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.compass.politicians.dto.AssociateDTO;
+import com.compass.politicians.dto.PoliticalPartyDTO;
+import com.compass.politicians.entities.Associate;
+import com.compass.politicians.entities.PoliticalParty;
+import com.compass.politicians.enums.Gender;
+import com.compass.politicians.enums.Ideology;
+import com.compass.politicians.enums.PoliticalOffice;
+import com.compass.politicians.repositories.AssociateRepository;
+import com.compass.politicians.repositories.PoliticalPartyRepository;
+
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+@DisplayName("Tests for Associate Service")
+class AssociateServiceTest {
+
+	@InjectMocks
+	private AssociateService associateService;
+	@Mock
+	private AssociateRepository associateRepository;
+	@Mock
+	private PoliticalPartyRepository politicalRepository;
+	@Mock
+	private Associate associte;
+	@Mock
+	private AssociateDTO associateDTO;
+	@Mock
+	private PoliticalParty politicalParty;
+	@Mock
+	private PoliticalPartyDTO politicalPartyDTO;
+	
+	@BeforeEach
+	public void beforeEach() {
+		MockitoAnnotations.openMocks(this);
+		newAssociate();
+		newPoliticalParty();
+	}
+	
+	@DisplayName("Save Associate")
+	@Test
+	void saveAssociate() {
+		Mockito.when(associateRepository.save(Mockito.any())).thenReturn();
+	}
+	
+	private void newAssociate() {
+		Associate associate = new Associate();
+		associate.setId(1L);
+		associate.setName("Matheus");
+		associate.setPoliticalOffice(PoliticalOffice.MAYOR);
+		associate.setBirthDate(new Date());
+		associate.setGender(Gender.MAN);
+	}
+	
+	private void newPoliticalParty() {
+		PoliticalParty politicalParty = new PoliticalParty();
+		politicalParty.setId(1L);
+		politicalParty.setName("Partido Trabalhista");
+		politicalParty.setAbbreviation("PT");
+		politicalParty.setFoundationDate(new Date());
+		politicalParty.setIdeology(Ideology.LEFTIST);
+	}
+
+}

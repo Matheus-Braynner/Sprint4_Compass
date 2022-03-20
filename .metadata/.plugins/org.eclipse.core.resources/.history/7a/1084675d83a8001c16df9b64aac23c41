@@ -1,0 +1,18 @@
+package com.compass.politicians.services;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+class AssociateServiceTest {
+
+	@Autowired
+	private AssociateService associateService;
+	
+	@Test
+	void saveAssociate() {
+		fail("Not yet implemented");
+	}
+
+}

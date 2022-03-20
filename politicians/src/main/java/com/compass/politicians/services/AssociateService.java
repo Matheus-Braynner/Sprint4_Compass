@@ -78,13 +78,6 @@ public class AssociateService {
 			throw new DatabaseException(e.getMessage());
 		}
 	}
-	
-	private void updateData(Associate entity, Associate obj) {
-		entity.setName(obj.getName());
-		entity.setPoliticalOffice(obj.getPoliticalOffice());
-		entity.setBirthDate(obj.getBirthDate());
-		entity.setGender(obj.getGender());
-	}
 
 	public void removeFromPoliticalParty(Long idAssociate, Long idPoliticalParty) {
 		Optional<Associate> associate = repository.findById(idAssociate);
@@ -96,6 +89,13 @@ public class AssociateService {
 		Associate associateGet = associate.get();
 		associateGet.setPoliticalParty(null);
 		repository.save(associateGet);
+	}
+	
+	private void updateData(Associate entity, Associate obj) {
+		entity.setName(obj.getName());
+		entity.setPoliticalOffice(obj.getPoliticalOffice());
+		entity.setBirthDate(obj.getBirthDate());
+		entity.setGender(obj.getGender());
 	}
 	
 }

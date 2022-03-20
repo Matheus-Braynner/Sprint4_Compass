@@ -1,0 +1,5 @@
+package com.compass.config;
+
+public class SpringFoxConfiguration {
+
+}
