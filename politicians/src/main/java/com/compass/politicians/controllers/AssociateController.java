@@ -45,7 +45,6 @@ public class AssociateController {
 
 	@GetMapping
 	public Page<AssociateDTO> findAll(Pageable pagination) {
-
 		Page<Associate> list = repository.findAll(pagination);
 		return AssociateDTO.convert(list);
 	}

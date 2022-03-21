@@ -36,7 +36,7 @@ public class PoliticalParty {
 	private Ideology ideology;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date foundationDate;
-	@OneToMany
+	@OneToMany(mappedBy = "politicalParty")
 	@JsonIgnore
 	private List<Associate> associates;
 	

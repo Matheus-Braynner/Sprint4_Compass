@@ -28,7 +28,7 @@ public class SpringFoxConfiguration {
 	 private ApiInfo metaData() {
 	        return new ApiInfoBuilder()
 
-	                .title("Spring Boot REST API STATE")
+	                .title("Spring Boot REST API POLITICIANS")
 	                .description("Spring Boot REST API for Compass / Hire me, please")
 	                .version("1.0.0")
 	                .license("Apache 2.0")

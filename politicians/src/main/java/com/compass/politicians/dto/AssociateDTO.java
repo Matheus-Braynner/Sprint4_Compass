@@ -37,6 +37,7 @@ public class AssociateDTO {
     	this.politicalOffice = associate.getPoliticalOffice();
     	this.birthDate = associate.getBirthDate();
     	this.gender = associate.getGender();
+    	this.idPoliticalParty = associate.getPoliticalParty().getId();
     }
     
     public static Page<AssociateDTO> convert(Page<Associate> states) {

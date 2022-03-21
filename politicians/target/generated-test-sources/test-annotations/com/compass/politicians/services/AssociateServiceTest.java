@@ -36,15 +36,9 @@ import com.compass.politicians.repositories.PoliticalPartyRepository;
 class AssociateServiceTest {
 
 	@InjectMocks
-	private AssociateService associateService;
-	@Mock
-	private AssociateRepository associateRepository;
+	private PoliticalPartyService politicalService;
 	@Mock
 	private PoliticalPartyRepository politicalRepository;
-	@Mock
-	private Associate associate;
-	@Mock
-	private AssociateDTO associateDTO;
 	@Mock
 	private PoliticalParty politicalParty;
 	@Mock
@@ -53,42 +47,24 @@ class AssociateServiceTest {
 	@BeforeEach
 	public void beforeEach() {
 		MockitoAnnotations.openMocks(this);
-		newAssociate();
-		newPoliticalParty();
+	
 	}
 	
 	@DisplayName("Save Associate")
 	@Test
 	void saveAssociate() {
-		when(this.associateService.insert(any(AssociateDTO.class))).thenReturn(associate);		
-		Associate aux = associateRepository.save(associate);
+		when(this.politicalService.insert(any(PoliticalParty.class))).thenReturn(politicalParty);		
+		PoliticalParty aux = politicalRepository.save(politicalParty);
 		
 		assertNotNull(aux);
-		assertEquals(AssociateDTO.class, aux.getClass());
+		assertEquals(PoliticalParty.class, aux.getClass());
 		assertEquals(1L, aux.getId());
-		assertEquals("Matheus", aux.getName());
-		assertEquals(new Date(), aux.getBirthDate());
-		assertEquals(PoliticalOffice.MAYOR, aux.getPoliticalOffice());
-		assertEquals(Gender.MAN, aux.getGender());
-		assertEquals(null, aux.getPoliticalParty());
+		assertEquals("Partido Trabalhista", aux.getName());
+		assertEquals("PT", aux.getAbbreviation());
+		assertEquals(new Date(), aux.getFoundationDate());
+		assertEquals(Ideology.LEFTIST, aux.getIdeology());
+
 	}
-	
-	private void newAssociate() {
-		AssociateDTO associate = new AssociateDTO();
-		associate.setId(1L);
-		associate.setName("Matheus");
-		associate.setPoliticalOffice(PoliticalOffice.MAYOR);
-		associate.setBirthDate(new Date());
-		associate.setGender(Gender.MAN);
-	}
-	
-	private void newPoliticalParty() {
-		PoliticalParty politicalParty = new PoliticalParty();
-		politicalParty.setId(1L);
-		politicalParty.setName("Partido Trabalhista");
-		politicalParty.setAbbreviation("PT");
-		politicalParty.setFoundationDate(new Date());
-		politicalParty.setIdeology(Ideology.LEFTIST);
-	}
+
 
 }

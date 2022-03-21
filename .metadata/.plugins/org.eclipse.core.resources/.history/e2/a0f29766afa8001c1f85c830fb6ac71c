@@ -1,0 +1,18 @@
+package com.compass.politicians.builder;
+
+import java.util.Date;
+
+import com.compass.politicians.entities.PoliticalParty;
+import com.compass.politicians.enums.Ideology;
+
+public class PoliticalPartyBuilder {
+
+	private void newPoliticalParty() {
+		PoliticalParty newPoliticalParty = new PoliticalParty();
+		politicalParty.setId(1L);
+		politicalParty.setName("Partido Trabalhista");
+		politicalParty.setAbbreviation("PT");
+		politicalParty.setFoundationDate(new Date());
+		politicalParty.setIdeology(Ideology.LEFTIST);
+	}
+}
